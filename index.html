@@ -21,17 +21,17 @@ Select ONE Additional Feature to Add
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Quiz About [Me]</h1>
+    <h1>Candy store!</h1>
     <hr />
     <!-- Movie Question -->
     <form id="movie-form">
       <label>
         🎥 What is my favorite movie?
         <select id="movie-answer">
-          <option value="movie1">movie 1</option>
-          <option value="movie2">movie 2</option>
-          <option value="movie3">movie 3</option>
-          <option value="movie4">movie 4</option>
+          <option value="candy1">Skittles 1</option>
+          <option value="candy2">twizzlers 2</option>
+          <option value="candy3">Kitkat3</option>
+          <option value="candy4"> 4</option>
         </select>
       </label>
       <button type="submit">Check Movie Answer</button>
@@ -57,8 +57,19 @@ Select ONE Additional Feature to Add
       <p id="book-text"></p>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
     <script>
-      
+        var candyImages = {
+        Skittles: "https://daylightdonutsstgeorge.com/wp-content/uploads/2023/06/Raised-Glazed.jpg",
+        twizzlers: "https://static01.nyt.com/images/2014/12/14/magazine/14eat4/14eat4-superJumbo.jpg",
+        Kitkat: "https://i0.wp.com/www.onegreenplanet.org/wp-content/uploads/2020/03/screen-shot-2020-03-30-at-12-35-21-pm.png?fit=763%2C657&ssl=1",
+        Nerds:
+       });
+
+      $("#donut-form").on("submit", function (event) {
+        event.preventDefault();
+
       //========================Movie Question jQuery Code
       $("#movie-form").on("submit", function (event) {
         event.preventDefault();
@@ -66,7 +77,7 @@ Select ONE Additional Feature to Add
         var $answer = $("#movie-answer");
         var answer = $answer.val();
 
-        if (answer === "movie1") {
+        if (answer === "Cand") {
           $("#movie-text").text("YESSSS!");
         } 
         else {
