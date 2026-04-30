@@ -26,29 +26,29 @@ Select ONE Additional Feature to Add
     <!-- Movie Question -->
     <form id="movie-form">
       <label>
-        🎥 What is my favorite movie?
+        Pick your candy!
         <select id="movie-answer">
-          <option value="candy1">Skittles 1</option>
-          <option value="candy2">twizzlers 2</option>
-          <option value="candy3">Kitkat3</option>
-          <option value="candy4"> 4</option>
+          <option value="candy1">Skittles </option>
+          <option value="candy2">twizzlers </option>
+          <option value="candy3">Kitkat</option>
+          <option value="candy4">Nerds</option>
         </select>
       </label>
-      <button type="submit">Check Movie Answer</button>
+      <button type="submit">Check out</button>
     </form>
-    <div id="movie-result">
-      <p id="movie-text"></p>
+    <div id="candy-price">
+      <p id="d"></p>
     </div>
     <hr />
     <!-- Book Question -->
     <form id="book-form">
       <label>
-        📖 What is my favorite book?
+        Pick your drink
         <select id="book-answer">
-          <option value="book1">book 1</option>
-          <option value="book2">book 2</option>
-          <option value="book3">book 3</option>
-          <option value="book4">book 4</option>
+          <option value="drink1">drink 1</option>
+          <option value="drink2">drink 2</option>
+          <option value="drink3">drink 3</option>
+          <option value="drink4">drink 4</option>
         </select>
       </label>
       <button type="submit">Check Book Answer</button>
@@ -61,14 +61,17 @@ Select ONE Additional Feature to Add
 
     <script>
         var candyImages = {
-        Skittles: "https://daylightdonutsstgeorge.com/wp-content/uploads/2023/06/Raised-Glazed.jpg",
-        twizzlers: "https://static01.nyt.com/images/2014/12/14/magazine/14eat4/14eat4-superJumbo.jpg",
-        Kitkat: "https://i0.wp.com/www.onegreenplanet.org/wp-content/uploads/2020/03/screen-shot-2020-03-30-at-12-35-21-pm.png?fit=763%2C657&ssl=1",
-        Nerds:
-       });
-
-      $("#donut-form").on("submit", function (event) {
+        Skittles: "https://allcitycandy.com/cdn/shop/products/all-city-candy-skittles-wild-berry-bite-size-candies-217-oz-bag-chewy-wrigley-1-bag-430695_600x.jpg?v=1673283193",
+        twizzlers: "https://target.scene7.com/is/image/Target/GUEST_412acaa5-e02b-45eb-bbf5-99903a2dbc74?wid=300&hei=300&fmt=pjpeg"
+        Kitkat: "https://target.scene7.com/is/image/Target/GUEST_236d7bbd-4e6d-4349-b5cf-a2826bfe6995",
+        Nerds:   "https://cdnimg.webstaurantstore.com/images/products/large/729409/2499504.jpg"
+       };
+       $("candy-form").on("submit", function (event) {
         event.preventDefault();
+        var $donutType = $(this).find("name=type");
+        var donutType = $donutType.val();
+       }
+      
 
       //========================Movie Question jQuery Code
       $("#movie-form").on("submit", function (event) {
