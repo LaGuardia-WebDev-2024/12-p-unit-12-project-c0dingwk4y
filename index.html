@@ -68,17 +68,24 @@ Select ONE Additional Feature to Add
        };
        $("candy-form").on("submit", function (event) {
         event.preventDefault();
-        var $donutType = $(this).find("name=type");
-        var donutType = $donutType.val();
-       }
+        var $candyType = $(this).find("name=type");
+        var candyType = $candyType.val();
+        var $img = ("<$img>");
+        $img.width(100);
+        $img.attr("src", candyImages[candyType]);
+        $img.appendTo("body");
+
+       });
+
+       // When the user taps check out, they should be able to see the candy
       
 
-      //========================Movie Question jQuery Code
-      $("#movie-form").on("submit", function (event) {
-        event.preventDefault();
+      // //========================Movie Question jQuery Code
+      // $("#movie-form").on("submit", function (event) {
+      //   event.preventDefault();
 
-        var $answer = $("#movie-answer");
-        var answer = $answer.val();
+      //   var $answer = $("#movie-answer");
+      //   var answer = $answer.val();
 
         if (answer === "Cand") {
           $("#movie-text").text("YESSSS!");
