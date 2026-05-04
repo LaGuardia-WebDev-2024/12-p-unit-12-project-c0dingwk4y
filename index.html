@@ -1,6 +1,6 @@
 <!-- Unit 12 Project
 Requirements
-[  ] Two Interactive Drop-down Inputs 
+[ - ] Two Interactive Drop-down Inputs 
 [  ] Standard Animation
 [  ] Custom Animation
 [ - ] Include Three Images
@@ -54,7 +54,7 @@ Select ONE Additional Feature to Add
       <button type="submit">Check out</button>
     </form>
     <div id="drink-result">
-      <p id="book-text"></p>
+      <p id="drink-text"></p>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
@@ -92,18 +92,21 @@ Select ONE Additional Feature to Add
         var $img = $("<img>");
         $img.width(100);
         $img.attr("src", drinkImages[drinkType]);
-        $img.appendTo("#book-result");
+        $img.appendTo("#drink-result");
       });
        $("#book-form").on("submit", function (event) {
         event.preventDefault();
         var $drinkType = $(this).find("[name=type]");
-        var drinkType = $drinkType.val();
+        var drinkType = $bookType.val();
         var $img = $("<img>");
         $img.width(100);
         $img.attr("src", drinkImages[drinkType]);
-        $img.appendTo("#book-result");
+        $img.appendTo("#drink-result");
        });
-       
+       var $pic = $("#store-pic");
+       var $h1 = $("#store-h1");
+       // ===================== Store Question jQuery Code
+      $("#button1")
        // When the user taps check out, they should be able to see the candy
       
 
