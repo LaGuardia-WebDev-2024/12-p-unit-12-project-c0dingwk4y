@@ -3,7 +3,7 @@ Requirements
 [  ] Two Interactive Drop-down Inputs 
 [  ] Standard Animation
 [  ] Custom Animation
-[  ] Include Three Images
+[ - ] Include Three Images
 
 Select ONE Additional Feature to Add  
 [ no ] Feature 1 - Google Font
@@ -21,17 +21,18 @@ Select ONE Additional Feature to Add
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+    <h4>console</h4>
     <h1>Candy store!</h1>
     <hr />
     <!-- Movie Question -->
-    <form id="movie-form">
+    <form id="candy-form">
       <label>
         Pick your candy!
-        <select id="movie-answer">
-          <option value="candy1">Skittles </option>
-          <option value="candy2">twizzlers </option>
-          <option value="candy3">Kitkat</option>
-          <option value="candy4">Nerds</option>
+        <select id="movie-answer" name="type">
+          <option value="Skittles">Skittles </option>
+          <option value="twizzlers">twizzlers </option>
+          <option value="Kitkat">Kitkat</option>
+          <option value="Nerds">Nerds</option>
         </select>
       </label>
       <button type="submit">Check out</button>
@@ -41,19 +42,18 @@ Select ONE Additional Feature to Add
     </div>
     <hr />
     <!-- Book Question -->
-    <form id="book-form">
+      <form id="drink-form">
       <label>
         Pick your drink
-        <select id="book-answer">
+        <select id="book-answer" name="type">
           <option value="drink1">drink 1</option>
           <option value="drink2">drink 2</option>
           <option value="drink3">drink 3</option>
-          <option value="drink4">drink 4</option>
         </select>
       </label>
-      <button type="submit">Check Book Answer</button>
+      <button type="submit">Check out</button>
     </form>
-    <div id="book-result">
+    <div id="drink-result">
       <p id="book-text"></p>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -62,21 +62,48 @@ Select ONE Additional Feature to Add
     <script>
         var candyImages = {
         Skittles: "https://allcitycandy.com/cdn/shop/products/all-city-candy-skittles-wild-berry-bite-size-candies-217-oz-bag-chewy-wrigley-1-bag-430695_600x.jpg?v=1673283193",
-        twizzlers: "https://target.scene7.com/is/image/Target/GUEST_412acaa5-e02b-45eb-bbf5-99903a2dbc74?wid=300&hei=300&fmt=pjpeg"
+        twizzlers: "https://target.scene7.com/is/image/Target/GUEST_412acaa5-e02b-45eb-bbf5-99903a2dbc74?wid=300&hei=300&fmt=pjpeg",
         Kitkat: "https://target.scene7.com/is/image/Target/GUEST_236d7bbd-4e6d-4349-b5cf-a2826bfe6995",
         Nerds:   "https://cdnimg.webstaurantstore.com/images/products/large/729409/2499504.jpg"
        };
-       $("candy-form").on("submit", function (event) {
+       $("#candy-form").on("submit", function (event) {
         event.preventDefault();
-        var $candyType = $(this).find("name=type");
+        var $candyType = $(this).find("[name=type]");
         var candyType = $candyType.val();
-        var $img = ("<$img>");
+        var $img = $("<img>");
         $img.width(100);
         $img.attr("src", candyImages[candyType]);
-        $img.appendTo("body");
+        $img.appendTo("#candy-price");
+        // $("h4").text("You selected: " + candyType);
+                // $("h4").text("You selected: ");
+
 
        });
 
+       var drinkImages = {
+        drink1: "https://tse4.mm.bing.net/th/id/OIP.N5f2pbsmmj5D9QtftCK0OwHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
+        drink2: "https://i5.walmartimages.com/asr/c6f060d1-6c9b-486d-a572-aacd5a57aa73_1.f2f8d5abcda9b896eed8ab3e80448bd8.jpeg",
+        drink3: "https://th.bing.com/th/id/R.1f5cb967b561f7290ea4e36d0b5caedc?rik=ki4ZiEy%2bGCtcxg&riu=http%3a%2f%2fcandyparadise.ca%2fcdn%2fshop%2ffiles%2fIMG-7930.png%3fv%3d1713653219&ehk=AkBr4wtdm5uZvvIrCTMNGCpu74eP38emWqSVUMAFR%2bE%3d&risl=&pid=ImgRaw&r=0"
+       };
+      $("#drink-form").on("submit", function (event) {
+        event.preventDefault();
+        var $drinkType = $(this).find("[name=type]");
+        var drinkType = $drinkType.val();
+        var $img = $("<img>");
+        $img.width(100);
+        $img.attr("src", drinkImages[drinkType]);
+        $img.appendTo("#book-result");
+      });
+       $("#book-form").on("submit", function (event) {
+        event.preventDefault();
+        var $drinkType = $(this).find("[name=type]");
+        var drinkType = $drinkType.val();
+        var $img = $("<img>");
+        $img.width(100);
+        $img.attr("src", drinkImages[drinkType]);
+        $img.appendTo("#book-result");
+       });
+       
        // When the user taps check out, they should be able to see the candy
       
 
@@ -87,13 +114,13 @@ Select ONE Additional Feature to Add
       //   var $answer = $("#movie-answer");
       //   var answer = $answer.val();
 
-        if (answer === "Cand") {
-          $("#movie-text").text("YESSSS!");
-        } 
-        else {
-          $("#movie-text").text("Try Again!");
-        }
-      });
+      //   if (answer === "Cand") {
+      //     $("#movie-text").text("YESSSS!");
+      //   } 
+      //   else {
+      //     $("#movie-text").text("Try Again!");
+      //   }
+      // });
 
       //=======================Book Question jQuery Code
       $("#book-form").on("submit", function (event) {
