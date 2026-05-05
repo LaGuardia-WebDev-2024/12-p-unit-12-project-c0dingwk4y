@@ -2,7 +2,7 @@
 Requirements
 [ - ] Two Interactive Drop-down Inputs 
 [  ] Standard Animation
-[  ] Custom Animation
+[ - ] Custom Animation
 [ - ] Include Three Images
 
 Select ONE Additional Feature to Add  
@@ -56,6 +56,21 @@ Select ONE Additional Feature to Add
     <div id="drink-result">
       <p id="drink-text"></p>
     </div>
+    <!-- Another Drop Down -->
+    <form id="Toy-form">
+      <label>
+        Pick your toy
+        <select id="toy-answer" name="type">
+          <option value="toy1">toy 1</option>
+          <option value="toy2">toy 2</option>
+          <option value="toy3">toy 3</option>
+        </select>
+      </label>
+      <button type="submit">Check out</button>
+    </form>
+    <div id="Toy-result">
+      <p id="Toy-text"></p>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 
@@ -85,6 +100,14 @@ Select ONE Additional Feature to Add
         drink2: "https://i5.walmartimages.com/asr/c6f060d1-6c9b-486d-a572-aacd5a57aa73_1.f2f8d5abcda9b896eed8ab3e80448bd8.jpeg",
         drink3: "https://th.bing.com/th/id/R.1f5cb967b561f7290ea4e36d0b5caedc?rik=ki4ZiEy%2bGCtcxg&riu=http%3a%2f%2fcandyparadise.ca%2fcdn%2fshop%2ffiles%2fIMG-7930.png%3fv%3d1713653219&ehk=AkBr4wtdm5uZvvIrCTMNGCpu74eP38emWqSVUMAFR%2bE%3d&risl=&pid=ImgRaw&r=0"
        };
+
+       var toyImages = {
+        toy1: "https://m.media-amazon.com/images/I/61HBX2Cse+L._AC_SL1000_.jpg",
+        toy2: "https://m.media-amazon.com/images/I/81HnDIqQf4L._AC_SL1500_.jpg",
+        toy3: "https://m.media-amazon.com/images/I/71kKp40Gm0L._AC_SL1500_.jpg",
+       };
+        
+
       $("#drink-form").on("submit", function (event) {
         event.preventDefault();
         var $drinkType = $(this).find("[name=type]");
@@ -103,10 +126,25 @@ Select ONE Additional Feature to Add
         $img.attr("src", drinkImages[drinkType]);
         $img.appendTo("#drink-result");
        });
-       var $pic = $("#store-pic");
-       var $h1 = $("#store-h1");
-       // ===================== Store Question jQuery Code
-      $("#button1")
+       
+       $("#Toy-form").on("submit", function (event) {
+        event.preventDefault();
+        var $toyType = $(this).find("[name=type]");
+        var toyType = $toyType.val();
+        var $img = $("<img>");
+        $img.width(100);
+        $img.attr("src", toyImages[toyType]);
+        $img.appendTo("#Toy-result");
+       });
+     $("#button1").click(function () {
+         $("h4").text("You selected: " + candyType);
+       });
+        $("#candy-price").animate({
+          left: "250px",
+          height: "150px",
+          width: "500px",
+          opacity: 2,
+        });
        // When the user taps check out, they should be able to see the candy
       
 
